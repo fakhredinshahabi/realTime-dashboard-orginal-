@@ -1,21 +1,46 @@
 <section class="side-bar">
-<header>
 
-  <span>
+  <div class="chart-container">
+    <canvas baseChart
+            [data]="pieChartData"
+            [type]="pieChartType"
+            [options]="pieChartOptions">
+    </canvas>
+  </div>
 
-  </span>
+  <article class="list-card">
+    <dl>
+      <dt>تعدا کل</dt>
+      <dd>1000</dd>
+    </dl>
+  </article>
 
-</header>
 
-<section>
+  <article class="list-card">
+    <dl>
+      <dt>دستگاه های آنلاین</dt>
+      <dd>500</dd>
+    </dl>
+  </article>
 
-  <div class="card-chart"></div>
-  <div class="card-chart"></div>
-  <div class="card-chart"></div>
-  <div class="card-chart"></div>
 
-</section>
-<footer></footer>
+  <article class="list-card" >
+    <dl>
+      <dt>دستگاه های آفلاین </dt>
+      <dd>350</dd>
+    </dl>
+  </article>
+
+
+  <article class="list-card" >
+    <dl>
+      <dt>دستگاه های دارای هشدار</dt>
+      <dd>150</dd>
+    </dl>
+  </article>
+
+
+
 
 </section>
 
