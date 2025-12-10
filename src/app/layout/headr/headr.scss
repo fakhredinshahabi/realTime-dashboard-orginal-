@@ -1,0 +1,45 @@
+.main{
+  background-color: var(--color-gray-dark-4);
+  padding: 0.5rem 2rem;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 0.4rem;
+  min-width: 0;
+  width: 100%;
+}
+.headr{
+
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.proile{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.prof-name{
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.name{
+  font-family: 'Vazirmatn', serif;
+  font-weight: bold;
+  color: var(--color-text);
+}
+.job{
+
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.prof-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-accent-base);
+}

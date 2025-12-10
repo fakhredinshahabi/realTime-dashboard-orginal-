@@ -1,0 +1,200 @@
+:root {
+  /* ------------------------------ Base Colors (blue gray)------------------------ */
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  --color-gray-base: #3e494e;
+
+  /* ----------- light --------- */
+  --color-gray-light-9: #eff2f3;
+  --color-gray-light-8: #dfe5e8;
+  --color-gray-light-7: #cfd8dc;
+  --color-gray-light-6: #bfcbd1;
+  --color-gray-light-5: #9fa4a7;
+  --color-gray-light-4: #8b9295;
+  --color-gray-light-3: #788083;
+  --color-gray-light-2: #656d71;
+  --color-gray-light-1: #515b60;
+  /*این دوتا یکی هستند برای تغییر اپسیتی از این ها استفاده شود در پایان فایل توضیح دادم*/
+  --color-gray-light-9-rgb: 239, 242, 243;
+  --color-gray-light-8-rgb: 223, 229, 232;
+  --color-gray-light-7-rgb: 207, 216, 220;
+  --color-gray-light-6-rgb: 191, 203, 209;
+  --color-gray-light-5-rgb: 159, 164, 167;
+  --color-gray-light-4-rgb: 139, 146, 149;
+  --color-gray-light-3-rgb: 120, 128, 131;
+  --color-gray-light-2-rgb: 101, 109, 113;
+  --color-gray-light-1-rgb: 81, 91, 96;
+
+  /* ----------- dark --------- */
+  --color-gray-dark-1: #384246;
+  --color-gray-dark-2: #323a3e;
+  --color-gray-dark-3: #2b3337;
+  --color-gray-dark-4: #252c2f;
+  --color-gray-dark-5: #1f2527;
+  --color-gray-dark-6: #191d1f;
+  --color-gray-dark-7: #131617;
+  --color-gray-dark-8: #0c0f10;
+  --color-gray-dark-9: #060708;
+  /*این دوتا یکی هستند برای تغییر اپسیتی از این ها استفاده شود در پایان فایل توضیح دادم*/
+  --color-gray-dark-1-rgb: 56, 66, 70;
+  --color-gray-dark-2-rgb: 50, 58, 62;
+  --color-gray-dark-3-rgb: 43, 51, 55;
+  --color-gray-dark-4-rgb: 37, 44, 47;
+  --color-gray-dark-5-rgb: 31, 37, 39;
+  --color-gray-dark-6-rgb: 25, 29, 31;
+  --color-gray-dark-7-rgb: 19, 22, 23;
+  --color-gray-dark-8-rgb: 12, 15, 16;
+  --color-gray-dark-9-rgb: 6, 7, 8;
+
+  /* --------------------------------- Primary Theme --------------------------------- */
+
+  --color-primary-base: #03a9f4;
+
+  /*ااین پالت رنگیو برای تکمیل بودن آوردم و احتمالن بهشون نیاز نداشته باشیم*/
+  /* ----------- light ------------*/
+  --color-primary-light-5: #81d4fa;
+  --color-primary-light-4: #68cbf8;
+  --color-primary-light-3: #4fc3f7;
+  --color-primary-light-2: #35baf6;
+  --color-primary-light-1: #1cb2f5;
+  /* ----------- dark ----------- */
+  --color-primary-dark-1: #0398dc;
+  --color-primary-dark-2: #0287c3;
+  --color-primary-dark-3: #0276ab;
+  --color-primary-dark-4: #026592;
+  --color-primary-dark-5: #02557a;
+
+  /* --------------------------------- Accent Theme -------------------------- */
+
+  --color-accent-base: #bb991b;
+
+  /*ااین پالت رنگیو برای تکمیل بودن آوردم و احتمالن بهشون نیاز نداشته باشیم*/
+  /* ----------- light ----------- */
+  --color-accent-light-5: #ddcc8d;
+  --color-accent-light-4: #d6c276;
+  --color-accent-light-3: #cfb85f;
+  --color-accent-light-2: #c9ad49;
+  --color-accent-light-1: #c2a332;
+  /* ----------- dark ----------- */
+  --color-accent-dark-1: #a88a18;
+  --color-accent-dark-2: #967a16;
+  --color-accent-dark-3: #836b13;
+  --color-accent-dark-4: #705c10;
+  --color-accent-dark-5: #5e4d0e;
+
+
+  /* ---------------------------------- Functional Colors -------------------------------- */
+
+  --color-success: #229103;
+  --color-warning: #b17011;
+  --color-danger: #fe3434;
+
+
+  /* --------------------------------------- UI Colors ------------------------------------- */
+
+
+
+
+  /* ---------------------text ------------------ */
+  --color-text: var(--color-gray-light-8);
+  --color-text-secondary: var(--color-gray-light-6);
+  --color-text-disabled: var(--color-gray-light-1);
+
+
+  /* ---------------border color----------------- */
+  --color-border: var(--color-gray-light-4);
+  --color-border-light: var(--color-gray-light-9);
+  --color-border-dark: var(--color-gray-light-6);
+
+
+  /* -------border radius------ */
+  --border-radius-default: 5px;
+  --border-radius-secondary: 6px;
+
+
+
+
+  /* ------------------background------------ --- */
+  --color-background: var(--color-gray-dark-7);
+  --color-background-menu: var(--color-gray-dark-5);
+
+
+  /* ---font-managment---- */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 36px;
+
+
+  /* ---zindex-managment---- */
+  --z-index-base: 0;
+  --z-index-dropdown: 100;
+  --z-index-sticky: 200;
+  --z-index-modal: 300;
+  --z-index-tooltip: 400;
+
+
+  /* --spacing-managment--- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-xxl: 24px;
+
+
+  /*--transition-managment-- */
+  --transition-fast: 150ms;
+  --transition-base: 300ms;
+  --transition-slow: 500ms;
+
+
+  /*--------------shadow-management---------- */
+  --shadow-sm: 0 1px 2px rgba(var(--color-gray-light-7-rgb), 0.1);
+  --shadow-md: 0 2px 6px rgba(var(--color-gray-light-7-rgb), 0.15);
+  --shadow-lg: 0 4px 12px rgba(var(--color-gray-light-7-rgb), 0.25);
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+}
+
+/* ------------------------------------------------------------------------------------ dark Theme ----------------------------------------------------------- */
+
+:root[data-theme="light"] {
+  /* ---background color--------------------------- */
+  --color-background: var(--color-gray-dark-7);
+  --color-background-menu: var(--color-gray-light-1);
+
+
+  /* ------------------text color---------------- */
+  --color-text: var(--color-gray-base);
+  --color-text-secondary: var(--color-gray-dark-4);
+  --color-text-disabled: var(--color-gray-light-3);
+
+
+
+  /* ---------------border color----------------- */
+  --color-border: var(--color-gray-light-4);
+  --color-border-light: var(--color-gray-light-9);
+  --color-border-dark: var(--color-gray-light-6);
+
+
+
+
+
+  /*--------------shadow-managment---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
