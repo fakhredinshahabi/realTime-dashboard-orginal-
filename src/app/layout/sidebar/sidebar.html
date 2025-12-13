@@ -1,17 +1,13 @@
 <section class="side-bar">
 
   <div class="chart-container">
-    <canvas baseChart
-            [data]="pieChartData"
-            [type]="pieChartType"
-            [options]="pieChartOptions">
-    </canvas>
+    <canvas id="statusChart"   style="width:100%;max-width:600px"></canvas>
   </div>
 
   <article class="list-card">
     <dl>
       <dt>تعدا کل</dt>
-      <dd>1000</dd>
+      <dd>{{ listOfDevice?.length }}</dd>
     </dl>
   </article>
 
@@ -19,7 +15,7 @@
   <article class="list-card">
     <dl>
       <dt>دستگاه های آنلاین</dt>
-      <dd>500</dd>
+      <dd>{{ onlineDeviceNumber }}</dd>
     </dl>
   </article>
 
@@ -27,7 +23,7 @@
   <article class="list-card" >
     <dl>
       <dt>دستگاه های آفلاین </dt>
-      <dd>350</dd>
+      <dd>{{offlineDeviceNumber}}</dd>
     </dl>
   </article>
 
@@ -35,7 +31,7 @@
   <article class="list-card" >
     <dl>
       <dt>دستگاه های دارای هشدار</dt>
-      <dd>150</dd>
+      <dd>{{warningDeviceNumber}}</dd>
     </dl>
   </article>
 

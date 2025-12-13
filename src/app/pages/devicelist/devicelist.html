@@ -36,7 +36,9 @@
 
 
       </div>
-      <p class="warning"> مصرف بالا! مقدار: 289.3 kW</p>
+      @if(device.temperature>100){ <p class="warning"> مصرف بالا! مقدار: 289.3 kW</p>}
+
+
     </article>
   }
 

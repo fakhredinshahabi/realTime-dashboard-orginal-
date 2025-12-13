@@ -10,11 +10,11 @@ import {DevicesService} from '../../services/devices-service';
 })
 export class Devicelist {
 
-  listOfDevice: _device[] | undefined;
+  listOfDevice: _device[] | undefined ;
   constructor(private devicesServis:DevicesService) {
   }
   ngOnInit() {
 
-    this.listOfDevice=this.devicesServis?.sendListDevices()
+    this.listOfDevice=this.devicesServis.sendListDevices()
   }
 }

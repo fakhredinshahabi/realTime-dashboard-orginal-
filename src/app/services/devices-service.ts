@@ -459,7 +459,7 @@ export class DevicesService {
   ];
 
 
-  status: ["online", "warning", "offline"] = ["online", "warning", "offline"];
+  status= ["online", "warning", "offline"];
   sendListDevices():_device[]{
     return this.devices.map((device) => ({
 
@@ -469,7 +469,7 @@ export class DevicesService {
         temperature: device.temperature = Math.floor(Math.random() * 200),
         lastSeen: new Date("2025-12-09T14:24:00Z"),
         location: {lat: device.location.lat, lng: device.location.lng},
-        status: device.status = device.status[Math.floor(Math.random() * this.status.length)]
+        status: device.status = this.status[Math.floor(Math.random() * this.status.length)]
 
 
     }))
