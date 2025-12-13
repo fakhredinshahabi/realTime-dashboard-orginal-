@@ -1,21 +1,42 @@
 <section class="side-bar">
-<header>
 
-  <span>
+  <div class="chart-container">
+    <canvas id="statusChart"   style="width:100%;max-width:600px"></canvas>
+  </div>
 
-  </span>
+  <article class="list-card">
+    <dl>
+      <dt>تعدا کل</dt>
+      <dd>{{ listOfDevice?.length }}</dd>
+    </dl>
+  </article>
 
-</header>
 
-<section>
+  <article class="list-card">
+    <dl>
+      <dt>دستگاه های آنلاین</dt>
+      <dd>{{ onlineDeviceNumber }}</dd>
+    </dl>
+  </article>
 
-  <div class="card-chart"></div>
-  <div class="card-chart"></div>
-  <div class="card-chart"></div>
-  <div class="card-chart"></div>
 
-</section>
-<footer></footer>
+  <article class="list-card" >
+    <dl>
+      <dt>دستگاه های آفلاین </dt>
+      <dd>{{offlineDeviceNumber}}</dd>
+    </dl>
+  </article>
+
+
+  <article class="list-card" >
+    <dl>
+      <dt>دستگاه های دارای هشدار</dt>
+      <dd>{{warningDeviceNumber}}</dd>
+    </dl>
+  </article>
+
+
+
 
 </section>
 
