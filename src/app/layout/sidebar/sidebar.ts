@@ -19,30 +19,32 @@ export class Sidebar {
   labels: string[] = ['آنلاین', 'آفلاین', 'هشدار'];
   colors: string[] = ["#229103", "#b17011", "#fe3434"]
 
-  constructor(private devicesServic: DevicesService) {
+  constructor(private devicesService: DevicesService) {
   };
 
   ngOnInit() {
-    this.listOfDevice = this.devicesServic.sendListDevices();
-    this.onlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "online")).length;
-    this.offlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "offline")).length;
-    this.warningDeviceNumber = (this.listOfDevice.filter(device => device.status == "warning")).length;
+    this.devicesService.devices$.subscribe(devices => {
+      this.listOfDevice=devices
+      this.onlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "online")).length;
+      this.offlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "offline")).length;
+      this.warningDeviceNumber = (this.listOfDevice.filter(device => device.status == "warning")).length;
+      const chartForStatus = new Chart("statusChart", {
+        type: "pie",
+        data: {
+          labels: this.labels,
+          datasets: [{
+            data: [this.onlineDeviceNumber, this.offlineDeviceNumber, this.warningDeviceNumber],
+            backgroundColor: this.colors
+          }
+          ]
+        },
 
+      });
+    })
 
   }
 ngAfterViewInit() {
-  const chartForStatus = new Chart("statusChart", {
-    type: "pie",
-    data: {
-      labels: this.labels,
-      datasets: [{
-        data: [this.onlineDeviceNumber, this.offlineDeviceNumber, this.warningDeviceNumber],
-        backgroundColor: this.colors
-      }
-      ]
-    },
 
-  });
 }
 
 }

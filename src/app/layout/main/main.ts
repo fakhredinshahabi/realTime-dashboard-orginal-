@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Devicelist} from '../../pages/devicelist/devicelist';
 import {_device} from '../../-interfaces/_device';
 import {DevicesService} from '../../services/devices-service';
@@ -12,18 +12,23 @@ import {DevicesService} from '../../services/devices-service';
   styleUrl: './main.scss',
 })
 export class Main {
-  listOfDevice: _device[]=[];
+  listOfDevice: _device[] = [];
   onlineDeviceNumber: number = 0;
   offlineDeviceNumber: number = 0;
   warningDeviceNumber: number = 0;
-constructor(private deviceService: DevicesService) {
+
+  constructor(private deviceService: DevicesService) {
+  }
+  ngOnInit() {
+    this.deviceService.devices$.subscribe(devices => {
+      this.listOfDevice = devices
+      this.onlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "online")).length;
+      this.offlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "offline")).length;
+      this.warningDeviceNumber = (this.listOfDevice.filter(device => device.status == "warning")).length;
+    })
+  }
+
 }
-ngOnInit() {
-  this.listOfDevice=this.deviceService.sendListDevices();
-  this.onlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "online")).length;
-  this.offlineDeviceNumber = (this.listOfDevice.filter(device => device.status == "offline")).length;
-  this.warningDeviceNumber = (this.listOfDevice.filter(device => device.status == "warning")).length;
-}
-}
+
 
 

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {_device} from '../-interfaces/_device';
-
+import {BehaviorSubject,Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -457,12 +457,14 @@ export class DevicesService {
       status: "online"
     }
   ];
+  bsDevices$ =new BehaviorSubject<_device[]>(this.devices);
 
-
+  devices$=this.bsDevices$.asObservable()
   status= ["online", "warning", "offline"];
-  sendListDevices():_device[]{
-    return this.devices.map((device) => ({
+  sendListDevices(){
 
+    setInterval(()=>{
+      this.bsDevices$.next(this.devices.map((device) => ({
         id: device.id,
         name: device.name,
         type: device.type,
@@ -470,8 +472,8 @@ export class DevicesService {
         lastSeen: new Date("2025-12-09T14:24:00Z"),
         location: {lat: device.location.lat, lng: device.location.lng},
         status: device.status = this.status[Math.floor(Math.random() * this.status.length)]
+      })))
 
-
-    }))
+    },5000)
   }
 }

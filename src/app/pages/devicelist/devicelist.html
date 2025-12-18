@@ -1,10 +1,12 @@
 <section class="deviceList">
-  @for (device of listOfDevice;track device.id){
-    <article class="card-device">
+  @for (device of listOfDevice;track device.id )
+
+  {
+    <article  class="card-device">
       <div  class="name-status">
 
         <i class="fa fa-circle" style="color: var(--color-success); font-size:10px;"></i>
-        <p>{{device.name}}</p>
+        <p>{{ device.name}}</p>
       </div>
 
 
@@ -24,7 +26,8 @@
         <div style="display: flex;flex-direction: column">
           <dl>
             <dt>موقعيت:</dt>
-            <dd>{{device.location}}</dd>
+            <dd>{{device.location.lat}}</dd>
+            <dd>{{device.location.lng}}</dd>
           </dl>
 
           <dl>
