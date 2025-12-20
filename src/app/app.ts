@@ -4,6 +4,7 @@ import {Headr} from './layout/headr/headr';
 import {Footer} from './layout/footer/footer';
 import {Sidebar} from './layout/sidebar/sidebar';
 import {Main} from './layout/main/main';
+import {DevicesService} from './services/devices-service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,9 @@ import {Main} from './layout/main/main';
   styleUrl: './app.scss'
 })
 export class App {
-
+constructor(private deviceService: DevicesService) {
+}
+ngOnInit() {
+  this.deviceService.sendListDevices()
+}
 }
