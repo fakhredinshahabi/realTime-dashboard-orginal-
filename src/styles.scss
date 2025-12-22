@@ -1,6 +1,7 @@
 @use 'normalize.css/normalize.css';
 @use "special-styles/fonts";
 @use "special-styles/variables.scss";
+
 body{
   font-family:'Vazirmatn', serif;
   background-color: var(--color-background);
@@ -12,3 +13,6 @@ body{
 *::after {
   box-sizing: border-box;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
