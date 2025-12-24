@@ -1,0 +1,23 @@
+<section class="main-login">
+  <div class="heder">
+    <p>Monotoring System</p>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div style="display: flex; flex-direction: column">
+      <label for="userName">Name</label>
+      <input formControlName="userName" id="userName" />
+      @if (getcontrolsLogin('userName')?.invalid && getcontrolsLogin('userName')?.touched) {
+        <p>corect</p>
+      }
+      <label for="password">password</label>
+      <input formControlName="password" id="password" />
+      @if (getcontrolsLogin('password')?.invalid && getcontrolsLogin('password')?.touched) {
+        <p style="color: red">wrong</p>
+      }
+    </div>
+
+    <div class="button-login">
+      <button>Sign Up</button>
+    </div>
+  </form>
+</section>
