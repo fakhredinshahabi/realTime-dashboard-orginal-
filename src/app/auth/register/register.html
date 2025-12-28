@@ -2,99 +2,94 @@
   <div class="heder">
     <p>Monotoring System</p>
   </div>
-  <form [formGroup]="registerForm" (ngSubmit)="login()">
-    <div style="display: flex; flex-direction: column">
-      <label for="name">Name</label>
-      <input formControlName="name" id="name" />
-      @if (getcontrols('name')?.valid || getcontrols('name')?.touched) {
-        @if (getcontrols('name')?.errors?.['required']) {
-          <span> name is required!!!</span>
-        }
-        @if (getcontrols('name')?.errors?.['pattern']) {
-          <span> use english keyboard!!!</span>
-        }
-      }
+  @if (Loading) {
+    <app-loading></app-loading>
+  }
 
-      <label for="lastName">LastName</label>
-      <input formControlName="lastName" id="lastName" />
-      @if (getcontrols('lastName')?.valid || getcontrols('lastName')?.touched) {
-        @if (getcontrols('lastName')?.errors?.['required']) {
-          <span> name is required!!!</span>
-        }
-        @if (getcontrols('lastName')?.errors?.['pattern']) {
-          <span> use english keyboard!!!</span>
-        }
-      }
-
-      <label for="userName">UserName</label>
-      <input formControlName="userName" id="userName" />
-      @if (getcontrols('userName')?.valid || getcontrols('userName')?.touched) {
-        @if (getcontrols('userName')?.errors?.['required']) {
-          <span> name is required!!!</span>
-        }
-        @if (getcontrols('userName')?.errors?.['pattern']) {
-          <span> use english keyboard!!!</span>
-        }
-      }
-
-      <label for="phoneNumber">phoneNumber</label>
-      <input formControlName="phoneNumber" id="phoneNumber" />
-      @if (getcontrols('phoneNumber')?.valid || getcontrols('phoneNumber')?.touched) {
-        @if (getcontrols('phoneNumber')?.errors?.['required']) {
-          <span> phone Number is required!!!</span>
-        }
-        @if (getcontrols('phoneNumber')?.errors?.['pattern']) {
-          <span> use Number keyboard!!!</span>
-        }
-      }
-      <label for="email">email</label>
-      <input formControlName="email" id="email" />
-      @if (getcontrols('email')?.valid || getcontrols('email')?.touched) {
-        @if (getcontrols('email')?.errors?.['required']) {
-          <span> phone Number is required!!!</span>
-        }
-        @if (getcontrols('email')?.errors?.['email']) {
-          <span> use Email syntax keyboard!!!</span>
-        }
-      }
-
-      <label for="password">Password</label>
-      <input type="password" formControlName="password" id="email" />
-      @if (getcontrols('password')?.valid || getcontrols('password')?.touched) {
-        @if (getcontrols('password')?.errors?.['required']) {
-          <span> phone Number is required!!!</span>
-        }
-        @if (getcontrols('password')?.errors?.['strongPassword']) {
-          @let sp = getcontrols('password')?.errors?.['strongPassword'];
-          @if (!sp.hasNumber) {
-            <span>use Number</span>
+  @if (!Loading) {
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div style="display: flex; flex-direction: column">
+        <label for="name">Name</label>
+        <input formControlName="name" id="name" />
+        @if (getcontrols('name')?.valid || getcontrols('name')?.touched) {
+          @if (getcontrols('name')?.errors?.['required']) {
+            <span> name is required!!!</span>
           }
-          @if (!sp.hasLower) {
-            <span>use Upper case</span>
-          }
-          @if (!sp.hasUpper) {
-            <span>use Upper case</span>
-          }
-          @if (!sp.hasSpecial) {
-            <span>use Special case</span>
-          }
-          @if (!sp.hasMinLength) {
-            <span> not hasMinLength</span>
+          @if (getcontrols('name')?.errors?.['pattern']) {
+            <span> use english keyboard!!!</span>
           }
         }
-      }
 
-      <label for="repassword">RePassword</label>
-      <input type="password" formControlName="repassword" id="repassword" />
-      @if (getcontrols('repassword')?.valid && getcontrols('repassword')?.touched) {
-        @if (registerForm.errors?.['missMatch']) {
-          <span>erooooooooooor</span>
+        <label for="lastName">LastName</label>
+        <input formControlName="lastName" id="lastName" />
+        @if (getcontrols('lastName')?.valid || getcontrols('lastName')?.touched) {
+          @if (getcontrols('lastName')?.errors?.['required']) {
+            <span> name is required!!!</span>
+          }
+          @if (getcontrols('lastName')?.errors?.['pattern']) {
+            <span> use english keyboard!!!</span>
+          }
         }
-      }
-    </div>
 
-    <div class="button-login">
-      <button>Sign Up</button>
-    </div>
-  </form>
+        <label for="userName">UserName</label>
+        <input formControlName="userName" id="userName" />
+        @if (getcontrols('userName')?.valid || getcontrols('userName')?.touched) {
+          @if (getcontrols('userName')?.errors?.['required']) {
+            <span> name is required!!!</span>
+          }
+          @if (getcontrols('userName')?.errors?.['pattern']) {
+            <span> use english keyboard!!!</span>
+          }
+        }
+        <label for="email">email</label>
+        <input formControlName="email" id="email" />
+        @if (getcontrols('email')?.valid || getcontrols('email')?.touched) {
+          @if (getcontrols('email')?.errors?.['required']) {
+            <span> phone Number is required!!!</span>
+          }
+          @if (getcontrols('email')?.errors?.['email']) {
+            <span> use Email syntax keyboard!!!</span>
+          }
+        }
+
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password" />
+        @if (getcontrols('password')?.valid || getcontrols('password')?.touched) {
+          @if (getcontrols('password')?.errors?.['required']) {
+            <span> password is required!!!</span>
+          }
+          @if (getcontrols('password')?.errors?.['strongPassword']) {
+            @let sp = getcontrols('password')?.errors?.['strongPassword'];
+            @if (!sp.hasNumber) {
+              <span>use Number</span>
+            }
+            @if (!sp.hasLower) {
+              <span>use Upper case</span>
+            }
+            @if (!sp.hasUpper) {
+              <span>use Upper case</span>
+            }
+            @if (!sp.hasSpecial) {
+              <span>use Special case</span>
+            }
+            @if (!sp.hasMinLength) {
+              <span> not hasMinLength</span>
+            }
+          }
+        }
+
+        <label for="repassword">RePassword</label>
+        <input type="password" formControlName="repassword" id="repassword" />
+        @if (getcontrols('repassword')?.valid && getcontrols('repassword')?.touched) {
+          @if (registerForm.errors?.['missMatch']) {
+            <span>erooooooooooor</span>
+          }
+        }
+      </div>
+
+      <div class="button-login">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+  }
 </section>

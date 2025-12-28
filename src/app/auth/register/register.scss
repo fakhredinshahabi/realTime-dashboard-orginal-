@@ -7,12 +7,14 @@
 }
 .heder{
   font-size: 1.5rem;
-  font-weight: 900;
-  padding: 1rem;
+  font-weight: 900;   
   color: black;
   display:flex ;
   justify-content: center;
   align-items: center;
+  p{
+  margin: 0.5rem 0 0 0;
+}
 }
 form{
     display: flex;
@@ -74,6 +76,10 @@ button{
 button:hover{
     background-color: var(--color-primary-dark-2);
       border: 1px solid var( --color-primary-dark-5);
+}
+button:disabled{
+  background-color: gray;
+      border: 1px solid var( --color-gray-dark-2);
 }
 .button-login{
     display: flex;
