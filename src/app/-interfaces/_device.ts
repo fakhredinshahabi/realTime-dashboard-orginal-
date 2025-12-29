@@ -1,15 +1,22 @@
+export interface _devices {
+  success: boolean;
+  devices: _device[];
+}
 export interface _device {
-
   id: string;
   name: string;
-  type: "relay" | "sensor" | "meter";
+  power: number;
   temperature: number;
-  lastSeen: Date;
-  location: _location;
+  // type: 'relay' | 'sensor' | 'meter';
+  // lastSeen: Date;
+  // location: _location;
   status: string;
-
 }
-export interface _location{
-  lat: number,
-  lng: number
+export interface _location {
+  lat: number;
+  lng: number;
+}
+export interface _getDeviceMessage {
+  type: string;
+  token: string | null;
 }

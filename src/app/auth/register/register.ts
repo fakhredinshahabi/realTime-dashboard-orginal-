@@ -4,14 +4,13 @@ import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { strongPassword } from '../../_validators/strongPaswword';
 import { checkRePassword } from '../../_validators/_matchPassword';
-import { _response, _user } from '../../-interfaces/_user';
+import { _user } from '../../-interfaces/_user';
 import { CommonModule } from '@angular/common';
-import { Httpservice } from '../../services/httpservice';
-import { Loading } from '../../share/loading/loading';
+import { Httpservice } from '../../_services/httpservice';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, RouterModule, CommonModule, Loading],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './register.html',
   styleUrl: './register.scss',
 })
@@ -48,7 +47,7 @@ export class Register {
         email: this.getcontrols('email')?.value,
         password: this.getcontrols('password')?.value,
       };
-      this.http.addUser(user).subscribe({
+      this.http.registerUser(user).subscribe({
         next: (response) => {
           if (response?.user?.userName) {
             localStorage.setItem('userName', response.user.userName);

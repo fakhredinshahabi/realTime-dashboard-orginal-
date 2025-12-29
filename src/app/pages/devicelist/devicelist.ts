@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DevicesService } from '../../services/devices-service';
-
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import { ServerService } from '../../services/server-service';
-import { _device } from '../../-interfaces/_device';
-import { HttpClient } from '@angular/common/http';
-import { environments } from '../../_environments/environments';
-import { Observable } from 'rxjs';
+import { ServerService } from '../../_services/server-service';
+import { _device, _getDeviceMessage } from '../../-interfaces/_device';
 @Component({
   selector: 'app-devicelist',
   imports: [CommonModule],
@@ -16,31 +10,18 @@ import { Observable } from 'rxjs';
   styleUrl: './devicelist.scss',
 })
 export class Devicelist {
-  constructor(
-    private http: HttpClient,
-    protected devicesServis: DevicesService,
-    protected serverservis: ServerService,
-  ) {}
-  socket$: WebSocketSubject<any> | undefined;
-
+  constructor(private http: ServerService) {}
   listOfDevice: _device[] = [];
 
   ngOnInit() {
-    this.socket$ = webSocket({ url: `${environments.apiBaseUrl}` });
-    this.socket$?.next({
+    this.http.getDeviseObs().subscribe({
+      next: (res: any) => {
+        console.log(typeof res);
+      },
+    });
+    this.http.sendMessage({
       type: 'AUTH',
       token: sessionStorage.getItem('token'),
-    });
-
-    const socketObs$ = this.socket$.asObservable();
-    socketObs$.subscribe({
-      next: (res) => {
-        console.log(res.payload);
-        this.listOfDevice = res.payload;
-      },
-      error: (err) => {
-        console.log(err.error.message);
-      },
     });
   }
 }

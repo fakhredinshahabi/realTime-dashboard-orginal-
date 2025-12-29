@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { ReactiveFormsModule, Validator, Validators } from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { strongPassword } from '../../_validators/strongPaswword';
-import { HttpClient } from '@angular/common/http';
-import { Httpservice } from '../../services/httpservice';
-import { _response, _loginRequest } from '../../-interfaces/_user';
+import { Httpservice } from '../../_services/httpservice';
+import { _userLogin } from '../../-interfaces/_user';
 
 @Component({
   selector: 'app-login',
@@ -35,7 +34,7 @@ export class Login {
   }
 
   login() {
-    const user: _loginRequest = {
+    const user: _userLogin = {
       userName: this.getcontrolsLogin('userName')?.value,
       password: this.getcontrolsLogin('password')?.value,
     };

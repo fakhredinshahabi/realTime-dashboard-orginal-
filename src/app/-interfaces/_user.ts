@@ -5,19 +5,19 @@ export interface _user {
   email: string;
   password: string;
 }
-export interface _response {
+export interface _responseRigesterUser {
   success: boolean;
   message: string;
   user?: _user;
 }
-export interface _loginResponse {
+export interface _responseLoginUser {
   success: boolean;
   message: string;
   token: string;
   user?: _user;
 }
 
-export interface _loginRequest {
+export interface _userLogin {
   userName: string;
   password: string;
 }
