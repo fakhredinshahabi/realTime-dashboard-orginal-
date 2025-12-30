@@ -3,88 +3,75 @@
     <p>Monotoring System</p>
   </div>
 
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div style="display: flex; flex-direction: column">
-      <label for="name">Name</label>
-      <input formControlName="name" id="name" />
-      @if (getcontrols('name')?.valid || getcontrols('name')?.touched) {
-        @if (getcontrols('name')?.errors?.['required']) {
-          <span> name is required!!!</span>
-        }
-        @if (getcontrols('name')?.errors?.['pattern']) {
-          <span> use english keyboard!!!</span>
-        }
-      }
+  <form>
+    <div>
+      <div>
+        <label for="validationServer01" class="form-label">Name</label>
+        <input type="text" class="form-control" aria-describedby="emailHelp" />
+      </div>
+      <div>
+        <label for="validationServer01" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationServer03"
+          aria-describedby="emailHelp"
+        />
+      </div>
 
-      <label for="lastName">LastName</label>
-      <input formControlName="lastName" id="lastName" />
-      @if (getcontrols('lastName')?.valid || getcontrols('lastName')?.touched) {
-        @if (getcontrols('lastName')?.errors?.['required']) {
-          <span> name is required!!!</span>
-        }
-        @if (getcontrols('lastName')?.errors?.['pattern']) {
-          <span> use english keyboard!!!</span>
-        }
-      }
+      <div>
+        <label for="validationServerUsername" class="form-label">Username</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+          <input
+            type="text"
+            class="form-control is-invalid"
+            id="validationServerUsername"
+            aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
+            required
+          />
+          <div id="validationServerUsernameFeedback" class="invalid-feedback">
+            Please choose a username.
+          </div>
+        </div>
+      </div>
 
-      <label for="userName">UserName</label>
-      <input formControlName="userName" id="userName" />
-      @if (getcontrols('userName')?.valid || getcontrols('userName')?.touched) {
-        @if (getcontrols('userName')?.errors?.['required']) {
-          <span> name is required!!!</span>
-        }
-        @if (getcontrols('userName')?.errors?.['pattern']) {
-          <span> use english keyboard!!!</span>
-        }
-      }
-      <label for="email">email</label>
-      <input formControlName="email" id="email" />
-      @if (getcontrols('email')?.valid || getcontrols('email')?.touched) {
-        @if (getcontrols('email')?.errors?.['required']) {
-          <span> phone Number is required!!!</span>
-        }
-        @if (getcontrols('email')?.errors?.['email']) {
-          <span> use Email syntax keyboard!!!</span>
-        }
-      }
+      <div>
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
 
-      <label for="password">Password</label>
-      <input type="password" formControlName="password" id="password" />
-      @if (getcontrols('password')?.valid || getcontrols('password')?.touched) {
-        @if (getcontrols('password')?.errors?.['required']) {
-          <span> password is required!!!</span>
-        }
-        @if (getcontrols('password')?.errors?.['strongPassword']) {
-          @let sp = getcontrols('password')?.errors?.['strongPassword'];
-          @if (!sp.hasNumber) {
-            <span>use Number</span>
-          }
-          @if (!sp.hasLower) {
-            <span>use Upper case</span>
-          }
-          @if (!sp.hasUpper) {
-            <span>use Upper case</span>
-          }
-          @if (!sp.hasSpecial) {
-            <span>use Special case</span>
-          }
-          @if (!sp.hasMinLength) {
-            <span> not hasMinLength</span>
-          }
-        }
-      }
+      <div>
+        <label for="exampleInputEmail1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div>
+        <label for="exampleInputPassword1" class="form-label">RePassword</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" />
+      </div>
 
-      <label for="repassword">RePassword</label>
-      <input type="password" formControlName="repassword" id="repassword" />
-      @if (getcontrols('repassword')?.valid && getcontrols('repassword')?.touched) {
-        @if (registerForm.errors?.['missMatch']) {
-          <span>erooooooooooor</span>
-        }
-      }
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
     </div>
 
     <div class="button-login">
-      <button type="submit">Sign Up</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
+  <div style="color: black !important ; display: flex; width: 100%; justify-content: space-around">
+    <span>اکانت دارید؟</span>
+    <a [routerLink]="['/auth/login']">ورود</a>
+  </div>
 </section>

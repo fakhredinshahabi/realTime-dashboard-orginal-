@@ -3,7 +3,7 @@ import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { strongPassword } from '../../_validators/strongPaswword';
-import { Httpservice } from '../../_services/httpservice';
+import { Httpservice } from '../../_services/httpService';
 import { _userLogin } from '../../-interfaces/_user';
 
 @Component({

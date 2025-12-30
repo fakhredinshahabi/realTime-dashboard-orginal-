@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Httpservice } from '../../_services/httpservice';
+import { Httpservice } from '../../_services/httpService';
 import { HttpClient } from '@angular/common/http';
 import { environments } from '../../_environments/environments';
 import { _user } from '../../-interfaces/_user';
