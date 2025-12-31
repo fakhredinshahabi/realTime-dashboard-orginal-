@@ -1,14 +1,24 @@
 <section class="main">
   <div class="headr">
-<div style="display: flex">
-  <h1>پنل مدییت هوشمند</h1>
-</div>
-    <div class="proile">
+    <div style="display: flex">
+      <h1>پنل مدییت هوشمند</h1>
+    </div>
+    <dialog id="dialog">
+      <p>{{ name }}</p>
+      <p>{{ lastName }}</p>
+      <p>{{ email }}</p>
+      <p>{{ userName }}</p>
+
+      <form method="dialog">
+        <button>OK</button>
+      </form>
+    </dialog>
+    <button (click)="openDialog()" class="proile">
       <div class="prof-image" aria-label="پروفایل">ع</div>
       <div class="prof-name">
-        <dt class="name"> علی احمد زاده</dt>
+        <dt class="name">علی احمد زاده</dt>
         <dd class="job">اپراتور</dd>
       </div>
-    </div>
+    </button>
   </div>
 </section>

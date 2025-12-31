@@ -1,0 +1,91 @@
+.main-rigesrty{
+   height: 100%;
+   background-color: #f2f2f2;
+   border-radius: 0 1rem 1rem 0;
+   display: flex;
+   flex-direction: column;
+  padding: 20px;
+}
+.heder{
+  font-size: 1.5rem;
+  font-weight: 900;   
+  color: black;
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+  p{
+  margin: 0.5rem 0 0 0;
+}
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    gap: 0.5rem;
+    border-radius:0 1rem 1rem 0;
+    width: 100%;
+    max-width: 50rem;
+    max-height: 100%;
+    direction: ltr;
+   flex: auto;
+  
+}
+label{
+margin: 0rem !important;
+  color: black;
+  font-size: 14px !important;
+}
+
+input[type=email],[type=password],[type=text], select {
+ 
+  padding: 5px !important;
+  margin: 0 !important;
+  font-size: 15px !important;
+
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: rgb(49, 49, 49);
+  padding: 14px ;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+button{
+    box-sizing: border-box !important;
+    background-color: var(--color-primary-base);
+    border-radius: 5px;
+    padding: 0.5rem;
+    border: 1px solid var( --color-primary-dark-2);
+    color: var( --color-white);
+    width: 8rem;
+    max-width: 100%;
+    min-width: 0;
+
+  
+}
+button:hover{
+    background-color: var(--color-primary-dark-2);
+      border: 1px solid var( --color-primary-dark-5);
+}
+button:disabled{
+  background-color: gray;
+      border: 1px solid var( --color-gray-dark-2);
+}
+.button-login{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+}
+span{
+  color: red;
+}

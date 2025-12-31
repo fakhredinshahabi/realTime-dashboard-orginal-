@@ -1,14 +1,28 @@
+/* اول @use ها */
+
 @use 'normalize.css/normalize.css';
 @use "special-styles/fonts";
 @use "special-styles/variables.scss";
-body{
-  font-family:'Vazirmatn', serif;
-  background-color: var(--color-background);
-  color:var(--color-text);
-  direction: rtl;
-}
+@use '../node_modules/bootstrap/scss/bootstrap' as *;
+/* سپس Tailwind */
+
+/* بعد استایل های خودت */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: "Vazirmatn", serif;  
+  background-color: var(--color-background);
+  color: var(--color-text);
+  direction: rtl;
+}
+/* Importing Bootstrap SCSS file. */
+

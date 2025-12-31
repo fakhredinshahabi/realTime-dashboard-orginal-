@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "1234",
+      "email": "",
+      "phoneNumber": "",
+      "rePassword": ""
+    },
+    {
+      "id": "36d9",
+      "name": "dd",
+      "lastname": "ddddddddddddd",
+      "email": "fakhrddinshahabi1992@gmail.com",
+      "password": "1q2w#E",
+      "rePassword": "1q2w#E"
+    },
+    {
+      "id": "83d6",
+      "name": "ddd",
+      "lastname": "dddd",
+      "email": "fakhrddinshahabi1992@gmail.com",
+      "password": "1q2w#E",
+      "rePassword": "1q2w#E"
+    },
+    {
+      "id": "c043",
+      "name": "ddd",
+      "lastname": "dddd",
+      "email": "fakhrddinshahabi1992@gmail.com",
+      "password": "1q2w#E",
+      "rePassword": "1q2w#E"
+    },
+    {
+      "id": "3ec3",
+      "name": "qqq",
+      "lastname": "qqqq",
+      "email": "fakhrddinshahabi1992@gmail.com",
+      "password": "1q2w#E",
+      "rePassword": "1q2w#E"
+    },
+    {
+      "id": "8d3e",
+      "name": "qq",
+      "lastname": "qqq",
+      "email": "fakhrddinshahabi1992@gmail.com",
+      "password": "1q2w#E",
+      "rePassword": "1q2w#E"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Hello World"
+    },
+    {
+      "id": "2",
+      "title": "My Second Post"
+    }
+  ]
+}
