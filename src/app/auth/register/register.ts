@@ -7,7 +7,9 @@ import { checkRePassword } from '../../_validators/_matchPassword';
 import { _user } from '../../-interfaces/_user';
 import { CommonModule } from '@angular/common';
 import { Httpservice } from '../../_services/httpService';
-
+import { strongPasswordCheck } from '../../_validators/_strongPassword';
+import { EmailValidator } from '../../_validators/_checkEmail';
+import { UserValidator } from '../../_validators/_checkUser';
 @Component({
   selector: 'app-register',
   imports: [ReactiveFormsModule, RouterModule, CommonModule],
@@ -16,10 +18,37 @@ import { Httpservice } from '../../_services/httpService';
 })
 export class Register {
   // Loading: boolean = false;
-  // constructor(
-  //   private http: Httpservice,
-  //   private router: Router,
-  // ) {}
+  constructor(
+    private http: Httpservice,
+    private router: Router,
+    private emailValidator: EmailValidator,
+    private userValidator: UserValidator,
+  ) {}
+
+  registerForm!: FormGroup;
+  ngOnInit() {
+    this.registerForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      userName: new FormControl(
+        '',
+        [Validators.required],
+        [this.userValidator.checkRealTimeUser()],
+      ),
+      email: new FormControl('', [Validators.required], [this.emailValidator.checkRealTimeEmail()]),
+      password: new FormControl('', [strongPasswordCheck()]),
+    });
+  }
+  registerUser() {
+    if (this.registerForm.valid) {
+      this.http.registerUser(this.registerForm.value).subscribe({
+        next: (data) => console.log(data),
+      });
+    }
+  }
+  getcontrolsRigesterForm(name: string) {
+    return this.registerForm.get(name);
+  }
   // registerForm = new FormGroup(
   //   {
   //     name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),

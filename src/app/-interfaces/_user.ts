@@ -21,3 +21,7 @@ export interface _userLogin {
   userName: string;
   password: string;
 }
+export interface _checkEmailResponse {
+  success: boolean;
+  exists: boolean;
+}

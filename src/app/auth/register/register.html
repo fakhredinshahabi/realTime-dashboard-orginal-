@@ -3,11 +3,16 @@
     <p>Monotoring System</p>
   </div>
 
-  <form>
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
     <div>
       <div>
         <label for="validationServer01" class="form-label">Name</label>
-        <input type="text" class="form-control" aria-describedby="emailHelp" />
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          aria-describedby="emailHelp"
+        />
       </div>
       <div>
         <label for="validationServer01" class="form-label">Last Name</label>
@@ -16,6 +21,7 @@
           class="form-control"
           id="validationServer03"
           aria-describedby="emailHelp"
+          formControlName="lastName"
         />
       </div>
 
@@ -25,14 +31,14 @@
           <span class="input-group-text" id="inputGroupPrepend3">@</span>
           <input
             type="text"
-            class="form-control is-invalid"
+            formControlName="userName"
+            class="form-control"
             id="validationServerUsername"
             aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
-            required
+            [ngClass]="
+              getcontrolsRigesterForm('userName')?.errors?.['userName'] ? 'is-invalid' : ''
+            "
           />
-          <div id="validationServerUsernameFeedback" class="invalid-feedback">
-            Please choose a username.
-          </div>
         </div>
       </div>
 
@@ -40,16 +46,30 @@
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
           type="email"
+          formControlName="email"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          [ngClass]="
+            getcontrolsRigesterForm('email')?.errors?.['emailExists'] ||
+            getcontrolsRigesterForm('email')?.touched
+              ? 'is-invalid'
+              : ''
+          "
         />
       </div>
+
+      @if (getcontrolsRigesterForm('email')?.valid || getcontrolsRigesterForm('email')?.touched) {
+        @if (getcontrolsRigesterForm('email')?.errors?.['emailExists']) {
+          <span>ایمیل تکراری</span>
+        }
+      }
 
       <div>
         <label for="exampleInputEmail1" class="form-label">Password</label>
         <input
           type="password"
+          formControlName="password"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
