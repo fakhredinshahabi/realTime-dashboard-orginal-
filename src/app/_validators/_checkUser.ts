@@ -10,9 +10,9 @@ export class UserValidator {
       const user = control.value;
       if (!user) return of(null);
 
-      return this.http.checkEmail(user).pipe(
-        map((eml: any) => {
-          return eml.exists ? { emailExists: true } : null;
+      return this.http.checkUser(user).pipe(
+        map((user: any) => {
+          return user.exists ? { userExists: true } : null;
         }),
       );
     };

@@ -27,7 +27,11 @@ export class Httpservice {
       `${environments.apiBaseUrl}${environments.api.checkUser}?email=${encodeURIComponent(email)}`,
     );
   }
-
+  checkUser(userName: string) {
+    return this.http.get(
+      `${environments.apiBaseUrl}${environments.api.checkUser}?userName=${encodeURIComponent(userName)}`,
+    );
+  }
   getUserProfile() {
     return this.http.get(`${environments.apiBaseUrl}${environments.api.profile}`);
   }

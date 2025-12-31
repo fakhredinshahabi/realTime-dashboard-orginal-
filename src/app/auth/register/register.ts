@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, NgModule } from '@angular/core';
+import { NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { strongPassword } from '../../_validators/strongPaswword';
@@ -41,60 +41,26 @@ export class Register {
   }
   registerUser() {
     if (this.registerForm.valid) {
-      this.http.registerUser(this.registerForm.value).subscribe({
-        next: (data) => console.log(data),
+      const user: _user = {
+        name: this.getcontrolsRigesterForm('name')?.value,
+        lastName: this.getcontrolsRigesterForm('lastName')?.value,
+        userName: this.getcontrolsRigesterForm('userName')?.value,
+        email: this.getcontrolsRigesterForm('email')?.value,
+        password: this.getcontrolsRigesterForm('password')?.value,
+      };
+      this.http.registerUser(user).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.router.navigate(['/auth/login']);
+        },
+        error: (msg) => {
+          alert(msg.error.message || 'خطای ناشناخته');
+        },
+        complete: () => {},
       });
     }
   }
   getcontrolsRigesterForm(name: string) {
     return this.registerForm.get(name);
   }
-  // registerForm = new FormGroup(
-  //   {
-  //     name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-  //     lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
-  //     userName: new FormControl('', [
-  //       Validators.required,
-  //       Validators.pattern('^[a-zA-Z0-9_]{3,20}$'),
-  //     ]),
-  //     email: new FormControl('', [Validators.required, Validators.email]),
-  //     password: new FormControl('', [Validators.required, strongPassword()]),
-  //     repassword: new FormControl('', [Validators.required]),
-  //   },
-  //   { validators: [checkRePassword] },
-  // );
-  // getcontrols(name: string): AbstractControl | null {
-  //   return this.registerForm.get(name);
-  // }
-  // onSubmit() {
-  //   if (this.registerForm.valid) {
-  //     const user: _user = {
-  //       name: this.getcontrols('name')?.value,
-  //       lastName: this.getcontrols('lastName')?.value,
-  //       userName: this.getcontrols('userName')?.value,
-  //       email: this.getcontrols('email')?.value,
-  //       password: this.getcontrols('password')?.value,
-  //     };
-  //     this.http.registerUser(user).subscribe({
-  //       next: (response) => {
-  //         if (response?.user?.userName) {
-  //           localStorage.setItem('userName', response.user.userName);
-  //         }
-  //         if (response.success) {
-  //           alert(response.message);
-  //           this.Loading = true;
-  //           setTimeout(() => {
-  //             this.router.navigate(['/auth/login']);
-  //           }, 2000);
-  //         }
-  //       },
-  //       error: (error) => {
-  //         alert('خطا: ' + (error.error?.message || 'خطای ناشناخته'));
-  //       },
-  //       complete: () => {},
-  //     });
-  //   } else {
-  //     this.registerForm.markAllAsTouched();
-  //   }
-  // }
 }

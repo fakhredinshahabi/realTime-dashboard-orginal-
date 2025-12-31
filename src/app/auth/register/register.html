@@ -36,11 +36,18 @@
             id="validationServerUsername"
             aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
             [ngClass]="
-              getcontrolsRigesterForm('userName')?.errors?.['userName'] ? 'is-invalid' : ''
+              getcontrolsRigesterForm('userName')?.errors?.['userExists'] ? 'is-invalid' : ''
             "
           />
         </div>
       </div>
+      @if (
+        getcontrolsRigesterForm('userName')?.valid || getcontrolsRigesterForm('userName')?.touched
+      ) {
+        @if (getcontrolsRigesterForm('userName')?.errors?.['userExists']) {
+          <span>ایمیل تکراری</span>
+        }
+      }
 
       <div>
         <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -50,12 +57,7 @@
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          [ngClass]="
-            getcontrolsRigesterForm('email')?.errors?.['emailExists'] ||
-            getcontrolsRigesterForm('email')?.touched
-              ? 'is-invalid'
-              : ''
-          "
+          [ngClass]="getcontrolsRigesterForm('email')?.errors?.['emailExists'] ? 'is-invalid' : ''"
         />
       </div>
 
